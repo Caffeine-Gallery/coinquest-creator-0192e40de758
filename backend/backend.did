@@ -1,0 +1,18 @@
+type Position = 
+ record {
+   x: nat;
+   y: nat;
+ };
+type GameState = 
+ record {
+   coins: vec Position;
+   playerColor: text;
+   playerName: text;
+   playerPosition: Position;
+   score: nat;
+ };
+service : {
+  createCharacter: (text, text) -> (GameState);
+  getGameState: () -> (GameState) query;
+  movePlayer: (nat, nat) -> (GameState);
+}
